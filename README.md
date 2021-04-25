@@ -1,5 +1,3 @@
-# Who Wants to Live Forever
-
 ![](competition_synopsis.png)
 
 ![](competition_IO.png)
