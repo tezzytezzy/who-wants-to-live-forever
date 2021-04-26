@@ -1,8 +1,26 @@
+# Google Python Style Guide
+# https://google.github.io/styleguide/pyguide.html
+
+# Per PEP 484, type notation adds type "hints" to variables, to inform what the type of a variable should be.
+# These hints are ignored by the interpreter and are used solely to increase the readability.
+# It does neither affect or be enforced by the runtime of the program in any way.
+# 
+# For multiple return type annotation, use "Tuple" as below
+from typing import Tuple
+
 
 def main():
     read_file("1.in")
 
-def read_file(data_file):
+def read_file(data_file: str):
+    """Reads input file.
+
+    Args:
+      data_file: The name of a file that contains test number(s) per line.
+
+    Returns:
+      N/A.
+    """    
     with open (data_file, 'rt', encoding="ISO-8859-1") as input_file:
         line_counter = 1
         for a_line in input_file:
@@ -13,6 +31,14 @@ def read_file(data_file):
             line_counter += 1
 
 def test_live_or_die(a_line: str):
+    """Prints "DIES" when a number changes to all zero(s), otherwise "LIVES"
+
+    Args:
+      a_line: A number - with carriage return ('\n').
+
+    Returns:
+      N/A.
+    """
     # Remove carriage return at the end of line
     test_str = a_line [:len(a_line)-1]
 
@@ -29,7 +55,16 @@ def test_live_or_die(a_line: str):
         else:
             test_str = new_str
 
-def recursive_live_pattern(old_str: str) -> bool:
+def recursive_live_pattern(old_str: str) -> Tuple[str, bool]:
+    """Converts a string and checks if it's recursive.
+
+    Args:
+      old_str: A string to be converted.
+
+    Returns:
+      1. A converted string, and
+      2. True if every digit of the number gets alternated between zero and one at every turn, otherwise False
+    """
     pos_products = 1
 
     new_str = get_new_str(old_str)
@@ -53,6 +88,14 @@ def recursive_live_pattern(old_str: str) -> bool:
             True if ((pos_products == 1) or old_str == '11') else False
 
 def get_new_str(test_str: str) -> str:
+    """Converts a string.
+
+    Args:
+      test_str: A string to be converted.
+
+    Returns:
+      A converted string.
+    """
     new_str = ''
     str_len = len(test_str)
 
