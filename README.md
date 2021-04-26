@@ -1,1 +1,5 @@
-# who-wants-to-live-forever
+![](competition_synopsis.png)
+
+![](competition_IO.png)
+
+Details : [Central Europe Regional Contest (CERC) 2012](https://open.kattis.com/problems/whowantstoliveforever)
