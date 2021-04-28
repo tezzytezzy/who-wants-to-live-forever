@@ -83,9 +83,10 @@ def recursive_live_pattern(old_str: str) -> Tuple[str, bool]:
     for str_pos in range(len(old_str)):
         pos_products *= (int(old_str[str_pos]) + int(new_str[str_pos]))
     
-    # '11' is so unique that it repeats itself forever
+    # A string such as '11' is so unique that it repeats itself forever
+    # Thus, (old_str == new_str) examines such a scenario
     return new_str, \
-            True if ((pos_products == 1) or old_str == '11') else False
+            True if ((pos_products == 1) or (old_str == new_str)) else False
 
 def get_new_str(test_str: str) -> str:
     """Converts a string.
